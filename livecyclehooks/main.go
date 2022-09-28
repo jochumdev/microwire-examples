@@ -3,22 +3,26 @@ package main
 import (
 	"errors"
 	"fmt"
-	"os"
 
 	"github.com/go-micro/microwire"
+	mCli "github.com/go-micro/microwire/cli"
 	mWire "github.com/go-micro/microwire/wire"
-	"github.com/urfave/cli/v2"
 	"go-micro.dev/v4"
 	"go-micro.dev/v4/logger"
+
+	_ "github.com/go-micro/microwire/plugins/cli/urfave"
+	_ "github.com/go-micro/microwire/plugins/transport/http"
+	_ "github.com/go-micro/plugins/v4/broker/http"
+	_ "github.com/go-micro/plugins/v4/registry/mdns"
 )
 
 func main() {
-	app, err := microwire.DefaultApp(
+	service, err := microwire.DefaultApp(
 		mWire.Name("livecyclehooks"),
 		mWire.Usage("A POC for go-micro.dev/v5"),
 		mWire.Version("v0.0.1"),
 		mWire.ArgPrefix(""),
-		mWire.Action(func(cli *cli.Context, service micro.Service) error {
+		mWire.Action(func(cli mCli.CLI, service micro.Service) error {
 			fmt.Println("Action executed")
 			return nil
 		}),
@@ -43,7 +47,7 @@ func main() {
 		logger.Fatal(err)
 	}
 
-	if err := app.Run(os.Args); err != nil {
+	if err := service.Run(); err != nil {
 		logger.Fatal(err)
 	}
 }
