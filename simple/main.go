@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	service, err := microwire.DefaultApp(
+	service, err := microwire.WireService(
 		mWire.Name("livecyclehooks"),
 		mWire.Usage("A POC for go-micro.dev/v5"),
 		mWire.Version("v0.0.1"),
