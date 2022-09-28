@@ -18,9 +18,9 @@ func main() {
 		mWire.Version("v0.0.1"),
 		mWire.ArgPrefix(""),
 
-		mWire.Component("broker", "nats"),
-		mWire.Component("registry", "nats"),
-		mWire.Component("transport", "nats"),
+		mWire.Component(mWire.ComponentBroker, "nats"),
+		mWire.Component(mWire.ComponentRegistry, "nats"),
+		mWire.Component(mWire.ComponentTransport, "nats"),
 	)
 	if err != nil {
 		logger.Fatal(err)
