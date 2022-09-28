@@ -10,7 +10,7 @@ import (
 // All methods here are stubs for the originals
 
 func ProvideBrokerFlags() *mBroker.DiFlags { return nil }
-func ProvideBrokerOpts(opts *mWire.Options, c mWire.InitializedCli) (*mBroker.DiOptions, error) {
+func ProvideBrokerOpts(opts *mWire.Options, _ mWire.InitializedCli) (*mBroker.DiOptions, error) {
 	return &mBroker.DiOptions{
 		Plugin:    "nats",
 		Addresses: "nats://localhost:4222",
@@ -18,7 +18,7 @@ func ProvideBrokerOpts(opts *mWire.Options, c mWire.InitializedCli) (*mBroker.Di
 }
 
 func ProvideRegistryFlags() *mRegistry.DiFlags { return nil }
-func ProvideRegistryOpts(opts *mWire.Options, c mWire.InitializedCli) (*mRegistry.DiOptions, error) {
+func ProvideRegistryOpts(opts *mWire.Options, _ mWire.InitializedCli) (*mRegistry.DiOptions, error) {
 	return &mRegistry.DiOptions{
 		Plugin:    "nats",
 		Addresses: "nats://localhost:4222",
@@ -26,7 +26,7 @@ func ProvideRegistryOpts(opts *mWire.Options, c mWire.InitializedCli) (*mRegistr
 }
 
 func ProvideTransportFlags() *mTransport.DiFlags { return nil }
-func ProvideTransportOpts(opts *mWire.Options, c mWire.InitializedCli) (*mTransport.DiOptions, error) {
+func ProvideTransportOpts(opts *mWire.Options, _ mWire.InitializedCli) (*mTransport.DiOptions, error) {
 	return &mTransport.DiOptions{
 		Plugin:    "nats",
 		Addresses: "nats://localhost:4222",
