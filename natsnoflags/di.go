@@ -7,11 +7,9 @@ import (
 	mWire "github.com/go-micro/microwire/wire"
 )
 
-// Stubbed out
-func ProvideBrokerFlags() *mBroker.DiFlags       { return nil }
-func ProvideRegistryFlags() *mRegistry.DiFlags   { return nil }
-func ProvideTransportFlags() *mTransport.DiFlags { return nil }
+// All methods here are stubs for the originals
 
+func ProvideBrokerFlags() *mBroker.DiFlags { return nil }
 func ProvideBrokerOpts(opts *mWire.Options, c mWire.InitializedCli) (*mBroker.DiOptions, error) {
 	return &mBroker.DiOptions{
 		Plugin:    "nats",
@@ -19,6 +17,7 @@ func ProvideBrokerOpts(opts *mWire.Options, c mWire.InitializedCli) (*mBroker.Di
 	}, nil
 }
 
+func ProvideRegistryFlags() *mRegistry.DiFlags { return nil }
 func ProvideRegistryOpts(opts *mWire.Options, c mWire.InitializedCli) (*mRegistry.DiOptions, error) {
 	return &mRegistry.DiOptions{
 		Plugin:    "nats",
@@ -26,6 +25,7 @@ func ProvideRegistryOpts(opts *mWire.Options, c mWire.InitializedCli) (*mRegistr
 	}, nil
 }
 
+func ProvideTransportFlags() *mTransport.DiFlags { return nil }
 func ProvideTransportOpts(opts *mWire.Options, c mWire.InitializedCli) (*mTransport.DiOptions, error) {
 	return &mTransport.DiOptions{
 		Plugin:    "nats",
