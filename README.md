@@ -4,10 +4,21 @@
 
 microwire intends to replace go-micro.dev/v4/util/cmd with wire generated code.
 
+## The examples
+
+- [simple](simple/)
+    The simplest way of creating a service with microwire.
+- [livecyclehooks](livecyclehooks/)
+    Simply provides all livecycle hooks available, one errors out.
+- [natsdefault](natsdefault/)
+    A demo for providing other Components as default.
+- [natsnoflags](natsnoflags/)
+    An advanced demo, which shows howto remove flags and replace them with own defaults.
+
 ## Authors
 
 - René Jochum - rene@jochum.dev
 
 ## License
 
-Go Micro is Apache 2.0 licensed.
+These examples are MIT licensed.
