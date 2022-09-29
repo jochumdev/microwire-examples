@@ -5,8 +5,6 @@ import (
 	"fmt"
 
 	"github.com/go-micro/microwire"
-	mCli "github.com/go-micro/microwire/cli"
-	mWire "github.com/go-micro/microwire/wire"
 	"go-micro.dev/v4"
 	"go-micro.dev/v4/logger"
 
@@ -17,28 +15,28 @@ import (
 )
 
 func main() {
-	service, err := microwire.NewWireService(
-		mWire.Name("livecyclehooks"),
-		mWire.Usage("A POC for go-micro.dev/v5"),
-		mWire.Version("v0.0.1"),
-		mWire.ArgPrefix(""),
-		mWire.Action(func(cli mCli.CLI, service micro.Service) error {
+	service, err := microwire.NewService(
+		microwire.Name("livecyclehooks"),
+		microwire.Usage("A POC for go-micro.dev/v5"),
+		microwire.Version("v0.0.1"),
+		microwire.ArgPrefix(""),
+		microwire.Action(func(config microwire.Store, service micro.Service) error {
 			fmt.Println("Action executed")
 			return nil
 		}),
-		mWire.BeforeStart(func() error {
+		microwire.BeforeStart(func() error {
 			fmt.Println("BeforeStart")
 			return nil
 		}),
-		mWire.BeforeStop(func() error {
+		microwire.BeforeStop(func() error {
 			fmt.Println("BeforeStop")
 			return nil
 		}),
-		mWire.AfterStart(func() error {
+		microwire.AfterStart(func() error {
 			fmt.Println("AfterStart")
 			return nil
 		}),
-		mWire.AfterStop(func() error {
+		microwire.AfterStop(func() error {
 			fmt.Println("AfterStop")
 			return errors.New("failure on stop?")
 		}),

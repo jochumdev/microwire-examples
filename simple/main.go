@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/go-micro/microwire"
-	mWire "github.com/go-micro/microwire/wire"
 	"go-micro.dev/v4/logger"
 
 	_ "github.com/go-micro/microwire/plugins/cli/urfave"
@@ -12,11 +11,11 @@ import (
 )
 
 func main() {
-	service, err := microwire.NewWireService(
-		mWire.Name("livecyclehooks"),
-		mWire.Usage("A POC for go-micro.dev/v5"),
-		mWire.Version("v0.0.1"),
-		mWire.ArgPrefix(""),
+	service, err := microwire.NewService(
+		microwire.Name("livecyclehooks"),
+		microwire.Usage("A POC for go-micro.dev/v5"),
+		microwire.Version("v0.0.1"),
+		microwire.ArgPrefix(""),
 	)
 	if err != nil {
 		logger.Fatal(err)
