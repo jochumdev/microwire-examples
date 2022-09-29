@@ -1,6 +1,10 @@
 package main
 
 import (
+	"encoding/json"
+	"fmt"
+
+	"go-micro.dev/v4"
 	"go-micro.dev/v4/logger"
 
 	"github.com/go-micro/microwire"
@@ -16,23 +20,21 @@ func main() {
 		logger.Fatal(err)
 	}
 
-	broker := configStore.GetBroker()
-	broker.Plugin = "nats"
-	broker.Addresses = []string{"nats://localhost:4222"}
-
-	registry := configStore.GetRegistry()
-	registry.Plugin = "nats"
-	registry.Addresses = []string{"nats://localhost:4222"}
-
-	transport := configStore.GetTransport()
-	transport.Plugin = "nats"
-	transport.Addresses = []string{"nats://localhost:4222"}
+	configStore.GetCli().ConfigFile = "config"
 
 	service, err := microwire.NewServiceWithConfigStore(
 		configStore,
-		microwire.Name("natscompileconfig"),
+		microwire.Name("nastconfigfile"),
 		microwire.Usage("A POC for go-micro.dev/v5"),
 		microwire.Version("v0.0.1"),
+		microwire.Action(func(config microwire.ConfigStore, service micro.Service) error {
+			b, err := json.MarshalIndent(config, "", "\t")
+			if err != nil {
+				return err
+			}
+			fmt.Printf("%s\n", string(b))
+			return nil
+		}),
 	)
 	if err != nil {
 		logger.Fatal(err)

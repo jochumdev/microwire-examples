@@ -14,8 +14,10 @@ microwire intends to replace go-micro.dev/v4/util/cmd with wire generated code.
     A demo for providing other Components as default.
 - [natsnoflags](natsnoflags/)
     An advanced demo, which shows howto remove flags and replace them with own defaults.
-- [nastcompileconfig](natscompileconfig/)
+- [natscompileconfig](natscompileconfig/)
     Nats with compile time config
+- [natsconfigfile](natsconfigfile/)
+    Nats with config from file
 
 ## Authors
 

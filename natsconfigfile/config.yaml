@@ -1,0 +1,13 @@
+---
+Broker:
+  Plugin: nats
+  Addresses:
+  - nats://localhost:4222
+Registry:
+  Plugin: nats
+  Addresses:
+  - nats://localhost:4222
+Transport:
+  Plugin: nats
+  Addresses:
+  - nats://localhost:4222
