@@ -1,0 +1,17 @@
+version: "3"
+
+tasks:
+  tidy:
+    cmds:
+      - go mod tidy
+  generate:
+    cmds:
+      - go generate ./...
+  lint:
+    cmds:
+      - trunk check
+  pre-commit:
+    cmds:
+      - task: tidy
+      - task: generate
+      - task: lint
