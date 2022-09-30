@@ -27,6 +27,7 @@ func main() {
 		microwire.Name("nastconfigfile"),
 		microwire.Usage("A POC for go-micro.dev/v5"),
 		microwire.Version("v0.0.1"),
+		microwire.NoFlags(),
 		microwire.Action(func(config microwire.ConfigStore, service micro.Service) error {
 			b, err := yaml.Marshal(config)
 			if err != nil {
