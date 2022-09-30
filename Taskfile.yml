@@ -4,14 +4,13 @@ tasks:
   tidy:
     cmds:
       - go mod tidy
-  generate:
+      - git add go.mod go.sum
+
+  check:
     cmds:
-      - go generate ./...
-  lint:
-    cmds:
-      - trunk check
+      - trunk check --sample 10
+
   pre-commit:
     cmds:
       - task: tidy
-      - task: generate
-      - task: lint
+      - task: check

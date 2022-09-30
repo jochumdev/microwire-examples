@@ -3,7 +3,7 @@ module github.com/go-micro/microwire-examples
 go 1.19
 
 require (
-	github.com/go-micro/microwire v0.0.0-20220929131237-0728948775cd
+	github.com/go-micro/microwire v0.0.0-20220929161603-757c9eef2536
 	github.com/go-micro/microwire/plugins/cli/urfave v0.0.0-20220929131237-0728948775cd
 	github.com/go-micro/microwire/plugins/transport/http v0.0.0-00010101000000-000000000000
 	github.com/go-micro/plugins/v4/broker/http v1.1.0
@@ -12,6 +12,7 @@ require (
 	github.com/go-micro/plugins/v4/registry/nats v1.1.0
 	github.com/go-micro/plugins/v4/transport/nats v1.1.0
 	go-micro.dev/v4 v4.9.0
+	gopkg.in/yaml.v2 v2.4.0
 )
 
 require (
@@ -70,7 +71,6 @@ require (
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
 replace github.com/go-micro/microwire => ../microwire

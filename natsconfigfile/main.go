@@ -1,11 +1,11 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 
 	"go-micro.dev/v4"
 	"go-micro.dev/v4/logger"
+	"gopkg.in/yaml.v2"
 
 	"github.com/go-micro/microwire"
 	_ "github.com/go-micro/microwire/plugins/cli/urfave"
@@ -28,11 +28,11 @@ func main() {
 		microwire.Usage("A POC for go-micro.dev/v5"),
 		microwire.Version("v0.0.1"),
 		microwire.Action(func(config microwire.ConfigStore, service micro.Service) error {
-			b, err := json.MarshalIndent(config, "", "\t")
+			b, err := yaml.Marshal(config)
 			if err != nil {
 				return err
 			}
-			fmt.Printf("%s\n", string(b))
+			fmt.Printf("YAML Config dump:\n\n%s\n", string(b))
 			return nil
 		}),
 	)

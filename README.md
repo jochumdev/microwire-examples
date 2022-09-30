@@ -1,6 +1,6 @@
 # microwire-examples
 
-**WIP - This is work in Progress - DO NOT USE**
+## WIP - This is work in Progress - DO NOT USE\*\*
 
 microwire intends to replace go-micro.dev/v4/util/cmd with wire generated code.
 
