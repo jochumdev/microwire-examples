@@ -10,7 +10,6 @@ import (
 	"github.com/go-micro/microwire"
 	"github.com/go-micro/microwire/broker"
 	"github.com/go-micro/microwire/registry"
-	"github.com/go-micro/microwire/store"
 	"github.com/go-micro/microwire/transport"
 	"go-micro.dev/v4"
 )
@@ -23,7 +22,7 @@ import (
 
 // Injectors from wire.go:
 
-func newService(opts *microwire.Options, brokerConfig *broker.Config, registryConfig *registry.Config, storeConfig *store.Config, transportConfig *transport.Config) (micro.Service, error) {
+func newService(opts *microwire.Options, brokerConfig *broker.Config, registryConfig *registry.Config, transportConfig *transport.Config) (micro.Service, error) {
 	diConfig, err := microwire.ProvideConfigFile(opts)
 	if err != nil {
 		return nil, err
@@ -36,15 +35,11 @@ func newService(opts *microwire.Options, brokerConfig *broker.Config, registryCo
 	if err != nil {
 		return nil, err
 	}
-	storeStore, err := store.Provide(diConfig, storeConfig)
-	if err != nil {
-		return nil, err
-	}
 	transportTransport, err := transport.Provide(diConfig, transportConfig)
 	if err != nil {
 		return nil, err
 	}
-	service, err := microwire.ProvideAllService(opts, brokerBroker, registryRegistry, storeStore, transportTransport)
+	service, err := provideService(opts, brokerBroker, registryRegistry, transportTransport)
 	if err != nil {
 		return nil, err
 	}
