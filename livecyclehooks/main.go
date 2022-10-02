@@ -4,39 +4,39 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/go-micro/microwire"
-	"go-micro.dev/v4"
-	"go-micro.dev/v4/logger"
+	micro "github.com/go-micro/microwire/v5"
 
-	_ "github.com/go-micro/microwire/plugins/cli/urfave"
-	_ "github.com/go-micro/microwire/plugins/transport/http"
-	_ "github.com/go-micro/plugins/v4/broker/http"
-	_ "github.com/go-micro/plugins/v4/registry/mdns"
+	"github.com/go-micro/microwire/v5/logger"
+
+	_ "github.com/go-micro/microwire-plugins/broker/http/v5"
+	_ "github.com/go-micro/microwire-plugins/cli/urfave/v5"
+	_ "github.com/go-micro/microwire-plugins/registry/mdns/v5"
+	_ "github.com/go-micro/microwire-plugins/transport/http/v5"
 )
 
 func main() {
-	service, err := microwire.NewService(
-		microwire.Name("livecyclehooks"),
-		microwire.Usage("A POC for go-micro.dev/v5"),
-		microwire.Version("v0.0.1"),
-		microwire.ArgPrefix(""),
-		microwire.Action(func(service micro.Service) error {
+	service, err := micro.NewService(
+		micro.Name("livecyclehooks"),
+		micro.Usage("A POC for go-micro.dev/v5"),
+		micro.Version("v0.0.1"),
+		micro.ArgPrefix(""),
+		micro.Action(func(service micro.Service) error {
 			fmt.Println("Action executed")
 			return nil
 		}),
-		microwire.BeforeStart(func() error {
+		micro.BeforeStart(func(_ micro.Service) error {
 			fmt.Println("BeforeStart")
 			return nil
 		}),
-		microwire.BeforeStop(func() error {
+		micro.BeforeStop(func(_ micro.Service) error {
 			fmt.Println("BeforeStop")
 			return nil
 		}),
-		microwire.AfterStart(func() error {
+		micro.AfterStart(func(_ micro.Service) error {
 			fmt.Println("AfterStart")
 			return nil
 		}),
-		microwire.AfterStop(func() error {
+		micro.AfterStop(func(_ micro.Service) error {
 			fmt.Println("AfterStop")
 			return errors.New("failure on stop?")
 		}),

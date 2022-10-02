@@ -1,25 +1,27 @@
 package main
 
 import (
-	"go-micro.dev/v4/logger"
+	"github.com/go-micro/microwire/v5/logger"
 
-	"github.com/go-micro/microwire"
+	micro "github.com/go-micro/microwire/v5"
+	mBroker "github.com/go-micro/microwire/v5/broker"
+	mRegistry "github.com/go-micro/microwire/v5/registry"
+	mTransport "github.com/go-micro/microwire/v5/transport"
 
-	mBroker "github.com/go-micro/microwire/broker"
-	mRegistry "github.com/go-micro/microwire/registry"
-	mTransport "github.com/go-micro/microwire/transport"
-
-	_ "github.com/go-micro/microwire/plugins/transport/http"
-	_ "github.com/go-micro/plugins/v4/broker/http"
-	_ "github.com/go-micro/plugins/v4/registry/mdns"
+	_ "github.com/go-micro/microwire-plugins/broker/http/v5"
+	_ "github.com/go-micro/microwire-plugins/broker/nats/v5"
+	_ "github.com/go-micro/microwire-plugins/registry/mdns/v5"
+	_ "github.com/go-micro/microwire-plugins/registry/nats/v5"
+	_ "github.com/go-micro/microwire-plugins/transport/http/v5"
+	_ "github.com/go-micro/microwire-plugins/transport/nats/v5"
 )
 
 func main() {
 	service, err := newService(
-		microwire.NewOptions(
-			microwire.Name("nocli"),
-			microwire.Version("v0.0.1"),
-			microwire.Config("config"),
+		micro.NewOptions(
+			micro.Name("nocli"),
+			micro.Version("v0.0.1"),
+			micro.ConfigFile("config"),
 		),
 		mBroker.NewConfig(),
 		mRegistry.NewConfig(),

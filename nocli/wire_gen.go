@@ -7,35 +7,51 @@
 package main
 
 import (
-	"github.com/go-micro/microwire"
-	"github.com/go-micro/microwire/broker"
-	"github.com/go-micro/microwire/registry"
-	"github.com/go-micro/microwire/transport"
-	"go-micro.dev/v4"
+	"github.com/go-micro/microwire/v5"
+	"github.com/go-micro/microwire/v5/broker"
+	"github.com/go-micro/microwire/v5/config/configdi"
+	"github.com/go-micro/microwire/v5/registry"
+	"github.com/go-micro/microwire/v5/transport"
 )
 
 import (
-	_ "github.com/go-micro/microwire/plugins/transport/http"
-	_ "github.com/go-micro/plugins/v4/broker/http"
-	_ "github.com/go-micro/plugins/v4/registry/mdns"
+	_ "github.com/go-micro/microwire-plugins/broker/http/v5"
+	_ "github.com/go-micro/microwire-plugins/registry/mdns/v5"
+	_ "github.com/go-micro/microwire-plugins/transport/http/v5"
 )
 
 // Injectors from wire.go:
 
-func newService(opts *microwire.Options, brokerConfig *broker.Config, registryConfig *registry.Config, transportConfig *transport.Config) (micro.Service, error) {
-	diConfig, err := microwire.ProvideConfigFile(opts)
+func newService(opts *micro.Options, brokerConfig *broker.Config, registryConfig *registry.Config, transportConfig *transport.Config) (micro.Service, error) {
+	diConfig, err := micro.ProvideConfigFile(opts)
 	if err != nil {
 		return nil, err
 	}
-	brokerBroker, err := broker.Provide(diConfig, brokerConfig)
+	config, err := configdi.ProvideConfigor(diConfig)
 	if err != nil {
 		return nil, err
 	}
-	registryRegistry, err := registry.Provide(diConfig, registryConfig)
+	brokerDiConfig, err := broker.ProvideConfigNoFlags(brokerConfig, config)
 	if err != nil {
 		return nil, err
 	}
-	transportTransport, err := transport.Provide(diConfig, transportConfig)
+	brokerBroker, err := broker.Provide(brokerDiConfig, brokerConfig)
+	if err != nil {
+		return nil, err
+	}
+	registryDiConfig, err := registry.ProvideConfigNoFlags(registryConfig, config)
+	if err != nil {
+		return nil, err
+	}
+	registryRegistry, err := registry.Provide(registryDiConfig, registryConfig)
+	if err != nil {
+		return nil, err
+	}
+	transportDiConfig, err := transport.ProvideConfigNoFlags(transportConfig, config)
+	if err != nil {
+		return nil, err
+	}
+	transportTransport, err := transport.Provide(transportDiConfig, transportConfig)
 	if err != nil {
 		return nil, err
 	}

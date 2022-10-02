@@ -1,21 +1,20 @@
 package main
 
 import (
-	"github.com/go-micro/microwire"
-	"go-micro.dev/v4/logger"
-
-	_ "github.com/go-micro/microwire/plugins/cli/urfave"
-	_ "github.com/go-micro/microwire/plugins/transport/http"
-	_ "github.com/go-micro/plugins/v4/broker/http"
-	_ "github.com/go-micro/plugins/v4/registry/mdns"
+	_ "github.com/go-micro/microwire-plugins/broker/http/v5"
+	_ "github.com/go-micro/microwire-plugins/cli/urfave/v5"
+	_ "github.com/go-micro/microwire-plugins/registry/mdns/v5"
+	_ "github.com/go-micro/microwire-plugins/transport/http/v5"
+	micro "github.com/go-micro/microwire/v5"
+	"github.com/go-micro/microwire/v5/logger"
 )
 
 func main() {
-	service, err := microwire.NewService(
-		microwire.Name("livecyclehooks"),
-		microwire.Usage("A POC for go-micro.dev/v5"),
-		microwire.Version("v0.0.1"),
-		microwire.ArgPrefix(""),
+	service, err := micro.NewService(
+		micro.Name("livecyclehooks"),
+		micro.Usage("A POC for go-micro.dev/v5"),
+		micro.Version("v0.0.1"),
+		micro.ArgPrefix(""),
 	)
 	if err != nil {
 		logger.Fatal(err)

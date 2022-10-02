@@ -1,15 +1,14 @@
 package main
 
 import (
-	"github.com/go-micro/microwire"
-	"go-micro.dev/v4"
-	"go-micro.dev/v4/broker"
-	"go-micro.dev/v4/registry"
-	"go-micro.dev/v4/transport"
+	micro "github.com/go-micro/microwire/v5"
+	"github.com/go-micro/microwire/v5/broker"
+	"github.com/go-micro/microwire/v5/registry"
+	"github.com/go-micro/microwire/v5/transport"
 )
 
 func provideService(
-	opts *microwire.Options,
+	opts *micro.Options,
 	broker broker.Broker,
 	registry registry.Registry,
 	transport transport.Transport,
@@ -29,15 +28,9 @@ func provideService(
 		mOpts = append(mOpts, micro.Transport(transport))
 	}
 
-	service := micro.NewService(
+	service := micro.NewMicroService(
 		mOpts...,
 	)
-
-	for _, fn := range opts.Actions {
-		if err := fn(service); err != nil {
-			return nil, err
-		}
-	}
 
 	return service, nil
 }

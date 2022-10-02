@@ -14,3 +14,7 @@ tasks:
     cmds:
       # - task: tidy
       - task: check
+
+  update:
+    cmds:
+      - go get -u ./...

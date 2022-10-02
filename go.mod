@@ -3,22 +3,21 @@ module github.com/go-micro/microwire-examples
 go 1.19
 
 require (
-	github.com/go-micro/microwire v0.0.0-20220929161603-757c9eef2536
-	github.com/go-micro/microwire/plugins/cli/urfave v0.0.0-20220929131237-0728948775cd
-	github.com/go-micro/microwire/plugins/transport/http v0.0.0-00010101000000-000000000000
-	github.com/go-micro/plugins/v4/broker/http v1.1.0
-	github.com/go-micro/plugins/v4/broker/nats v1.1.0
-	github.com/go-micro/plugins/v4/registry/mdns v1.1.0
-	github.com/go-micro/plugins/v4/registry/nats v1.1.0
-	github.com/go-micro/plugins/v4/transport/nats v1.1.0
+	github.com/go-micro/microwire-plugins/broker/http/v5 v5.0.0-20221002093515-10b191c7fd77
+	github.com/go-micro/microwire-plugins/broker/nats/v5 v5.0.0-20221002093515-10b191c7fd77
+	github.com/go-micro/microwire-plugins/cli/urfave/v5 v5.0.0-20221002093515-10b191c7fd77
+	github.com/go-micro/microwire-plugins/registry/mdns/v5 v5.0.0-20221002093515-10b191c7fd77
+	github.com/go-micro/microwire-plugins/registry/nats/v5 v5.0.0-20221002093515-10b191c7fd77
+	github.com/go-micro/microwire-plugins/transport/http/v5 v5.0.0-20221002093515-10b191c7fd77
+	github.com/go-micro/microwire-plugins/transport/nats/v5 v5.0.0-20221002093515-10b191c7fd77
+	github.com/go-micro/microwire/v5 v5.0.0
 	github.com/google/wire v0.5.0
-	go-micro.dev/v4 v4.9.0
 )
 
 require (
 	github.com/BurntSushi/toml v1.2.0 // indirect
 	github.com/Microsoft/go-winio v0.6.0 // indirect
-	github.com/ProtonMail/go-crypto v0.0.0-20220824120805-4b6e5c587895 // indirect
+	github.com/ProtonMail/go-crypto v0.0.0-20220930113650-c6815a8c17ad // indirect
 	github.com/acomagu/bufpipe v1.0.3 // indirect
 	github.com/bitly/go-simplejson v0.5.0 // indirect
 	github.com/cloudflare/circl v1.2.0 // indirect
@@ -38,6 +37,7 @@ require (
 	github.com/gobwas/pool v0.2.1 // indirect
 	github.com/gobwas/ws v1.1.0 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/google/go-cmp v0.5.8 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/gorilla/handlers v1.5.1 // indirect
 	github.com/imdario/mergo v0.3.13 // indirect
@@ -61,12 +61,15 @@ require (
 	github.com/urfave/cli/v2 v2.17.1 // indirect
 	github.com/xanzy/ssh-agent v0.3.2 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
+	go-micro.dev/v4 v4.9.0 // indirect
 	golang.org/x/crypto v0.0.0-20220926161630-eccd6366d1be // indirect
 	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect
-	golang.org/x/net v0.0.0-20220927171203-f486391704dc // indirect
+	golang.org/x/net v0.0.0-20221002022538-bcab6841153b // indirect
 	golang.org/x/sync v0.0.0-20220929204114-8fcdb60fdcc0 // indirect
 	golang.org/x/sys v0.0.0-20220928140112-f11e5e49a4ec // indirect
+	golang.org/x/term v0.0.0-20220526004731-065cf7ba2467 // indirect
 	golang.org/x/text v0.3.7 // indirect
+	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac // indirect
 	golang.org/x/tools v0.1.12 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
