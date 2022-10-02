@@ -7,6 +7,7 @@ import (
 
 	mBroker "github.com/go-micro/microwire/broker"
 	mRegistry "github.com/go-micro/microwire/registry"
+	mStore "github.com/go-micro/microwire/store"
 	mTransport "github.com/go-micro/microwire/transport"
 
 	_ "github.com/go-micro/microwire/plugins/transport/http"
@@ -24,6 +25,7 @@ func main() {
 		),
 		mBroker.NewConfig(),
 		mRegistry.NewConfig(),
+		mStore.NewConfig(),
 		mTransport.NewConfig(),
 	)
 	if err != nil {
