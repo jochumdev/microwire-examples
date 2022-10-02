@@ -20,7 +20,7 @@ func main() {
 		microwire.Usage("A POC for go-micro.dev/v5"),
 		microwire.Version("v0.0.1"),
 		microwire.ArgPrefix(""),
-		microwire.Action(func(config microwire.ConfigStore, service micro.Service) error {
+		microwire.Action(func(service micro.Service) error {
 			fmt.Println("Action executed")
 			return nil
 		}),

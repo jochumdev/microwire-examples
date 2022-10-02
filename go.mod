@@ -11,8 +11,8 @@ require (
 	github.com/go-micro/plugins/v4/registry/mdns v1.1.0
 	github.com/go-micro/plugins/v4/registry/nats v1.1.0
 	github.com/go-micro/plugins/v4/transport/nats v1.1.0
+	github.com/google/wire v0.5.0
 	go-micro.dev/v4 v4.9.0
-	gopkg.in/yaml.v2 v2.4.0
 )
 
 require (
@@ -39,7 +39,6 @@ require (
 	github.com/gobwas/ws v1.1.0 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/uuid v1.3.0 // indirect
-	github.com/google/wire v0.5.0 // indirect
 	github.com/gorilla/handlers v1.5.1 // indirect
 	github.com/imdario/mergo v0.3.13 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
@@ -56,6 +55,7 @@ require (
 	github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/urfave/cli/v2 v2.17.1 // indirect
@@ -71,10 +71,5 @@ require (
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
-
-replace github.com/go-micro/microwire => ../microwire
-
-replace github.com/go-micro/microwire/plugins/cli/urfave => ../microwire/plugins/cli/urfave
-
-replace github.com/go-micro/microwire/plugins/transport/http => ../microwire/plugins/transport/http

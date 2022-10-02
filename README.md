@@ -6,16 +6,14 @@ microwire intends to replace go-micro.dev/v4/util/cmd with wire generated code.
 
 ## The examples
 
-- [simple](simple/)
-  The simplest way of creating a service with microwire.
+- [configfile](configfile/)
+  Nats with config from file and NO builtin flags.
 - [livecyclehooks](livecyclehooks/)
   Simply provides all livecycle hooks available, one errors out.
-- [natsnoflags](natsnoflags/)
-  An advanced demo, which shows howto remove flags and replace them with own defaults.
-- [natscompileconfig](natscompileconfig/)
-  Nats with compile time config
-- [natsconfigfile](natsconfigfile/)
-  Nats with config from file
+- [nocli](nocli/)
+  An advanced demo, which shows howto remove Cli all together with wire generated code.
+- [simple](simple/)
+  The simplest way of creating a service with microwire.
 
 ## Authors
 
