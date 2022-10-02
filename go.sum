@@ -72,6 +72,8 @@ github.com/go-micro/microwire-plugins/transport/nats/v5 v5.0.0-20221002093515-10
 github.com/go-micro/microwire-plugins/transport/nats/v5 v5.0.0-20221002093515-10b191c7fd77/go.mod h1:WTzvbFegrVzJlIR4cpyVsdle1UBfyvUZRNvqxlusxA8=
 github.com/go-micro/microwire/v5 v5.0.0 h1:UqtFMvjaYmsL8wXOYmpl2ocz/5O0dafF33Lv1P7EHOk=
 github.com/go-micro/microwire/v5 v5.0.0/go.mod h1:7epVJvlJl6jqn7bbJziAPtytAf9o7AqRJVs4X7dZoYI=
+github.com/go-micro/microwire/v5 v5.0.1 h1:Q3r5ki9KKQ/BV/SY31HSTCLbZ95s8JuMzGMz4gkU2WA=
+github.com/go-micro/microwire/v5 v5.0.1/go.mod h1:sC9ZnWglQSdCx41nbygbffO8Lz3Dm58SfV7C6+WkCMA=
 github.com/go-micro/plugins/v4/config/encoder/toml v1.1.0 h1:2inKk4YPjzUKvQEzmFT1ecQ4N7aAKQzF6tnOsR+rA9c=
 github.com/go-micro/plugins/v4/config/encoder/toml v1.1.0/go.mod h1:QVbmOF267EAet8mWqbxHr7vGd6h9I9Aw6dZ7+/6v2a8=
 github.com/go-micro/plugins/v4/config/encoder/yaml v1.1.0 h1:8G9f9WfdN8zzoEznAv5dOtMCh9R9RMdC3isUhDwe6Ro=

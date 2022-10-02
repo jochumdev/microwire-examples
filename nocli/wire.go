@@ -20,7 +20,7 @@ func newService(
 ) (micro.Service, error) {
 	panic(wire.Build(
 		micro.ProvideConfigFile,
-		micro.DiNoFlagsSet,
+		micro.DiNoCliSet,
 		provideService,
 	))
 }

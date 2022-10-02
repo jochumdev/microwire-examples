@@ -10,7 +10,7 @@ require (
 	github.com/go-micro/microwire-plugins/registry/nats/v5 v5.0.0-20221002093515-10b191c7fd77
 	github.com/go-micro/microwire-plugins/transport/http/v5 v5.0.0-20221002093515-10b191c7fd77
 	github.com/go-micro/microwire-plugins/transport/nats/v5 v5.0.0-20221002093515-10b191c7fd77
-	github.com/go-micro/microwire/v5 v5.0.0
+	github.com/go-micro/microwire/v5 v5.0.1
 	github.com/google/wire v0.5.0
 )
 
