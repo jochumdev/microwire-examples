@@ -6,17 +6,17 @@ package main
 
 import (
 	micro "github.com/go-micro/microwire/v5"
-	mBroker "github.com/go-micro/microwire/v5/broker"
-	mRegistry "github.com/go-micro/microwire/v5/registry"
-	mTransport "github.com/go-micro/microwire/v5/transport"
+	"github.com/go-micro/microwire/v5/broker"
+	"github.com/go-micro/microwire/v5/registry"
+	"github.com/go-micro/microwire/v5/transport"
 	"github.com/google/wire"
 )
 
 func newService(
 	opts *micro.Options,
-	brokerConfig *mBroker.Config,
-	registryConfig *mRegistry.Config,
-	transportConfig *mTransport.Config,
+	brokerConfig *broker.Config,
+	registryConfig *registry.Config,
+	transportConfig *transport.Config,
 ) (micro.Service, error) {
 	panic(wire.Build(
 		micro.ProvideConfigFile,
