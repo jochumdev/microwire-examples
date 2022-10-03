@@ -9,8 +9,11 @@ package main
 import (
 	"github.com/go-micro/microwire/v5"
 	"github.com/go-micro/microwire/v5/broker"
+	"github.com/go-micro/microwire/v5/client"
 	"github.com/go-micro/microwire/v5/config/configdi"
+	"github.com/go-micro/microwire/v5/logger"
 	"github.com/go-micro/microwire/v5/registry"
+	"github.com/go-micro/microwire/v5/server"
 	"github.com/go-micro/microwire/v5/transport"
 )
 
@@ -20,7 +23,7 @@ import (
 
 // Injectors from wire.go:
 
-func newService(opts *micro.Options, brokerConfig *broker.Config, registryConfig *registry.Config, transportConfig *transport.Config) (micro.Service, error) {
+func newService(opts *micro.Options, clientConfig *client.Config, brokerConfig *broker.Config, loggerConfig *logger.Config, registryConfig *registry.Config, serverConfig *server.Config, transportConfig *transport.Config) (micro.Service, error) {
 	diConfig, err := micro.ProvideConfigFile(opts)
 	if err != nil {
 		return nil, err
@@ -33,7 +36,11 @@ func newService(opts *micro.Options, brokerConfig *broker.Config, registryConfig
 	if err != nil {
 		return nil, err
 	}
-	brokerBroker, err := broker.Provide(brokerDiConfig, brokerConfig)
+	loggerDiConfig, err := logger.ProvideConfigNoFlags(loggerConfig, config)
+	if err != nil {
+		return nil, err
+	}
+	loggerLogger, err := logger.Provide(loggerDiConfig, loggerConfig)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +48,15 @@ func newService(opts *micro.Options, brokerConfig *broker.Config, registryConfig
 	if err != nil {
 		return nil, err
 	}
-	registryRegistry, err := registry.Provide(registryDiConfig, registryConfig)
+	registryRegistry, err := registry.Provide(registryDiConfig, loggerLogger, registryConfig)
+	if err != nil {
+		return nil, err
+	}
+	brokerBroker, err := broker.Provide(brokerDiConfig, loggerLogger, registryRegistry, brokerConfig)
+	if err != nil {
+		return nil, err
+	}
+	clientDiConfig, err := client.ProvideConfigNoFlags(clientConfig, config)
 	if err != nil {
 		return nil, err
 	}
@@ -49,11 +64,23 @@ func newService(opts *micro.Options, brokerConfig *broker.Config, registryConfig
 	if err != nil {
 		return nil, err
 	}
-	transportTransport, err := transport.Provide(transportDiConfig, transportConfig)
+	transportTransport, err := transport.Provide(transportDiConfig, loggerLogger, transportConfig)
 	if err != nil {
 		return nil, err
 	}
-	service, err := provideService(opts, brokerBroker, registryRegistry, transportTransport)
+	clientClient, err := client.Provide(clientDiConfig, brokerBroker, loggerLogger, registryRegistry, transportTransport, clientConfig)
+	if err != nil {
+		return nil, err
+	}
+	serverDiConfig, err := server.ProvideConfigNoFlags(serverConfig, config)
+	if err != nil {
+		return nil, err
+	}
+	serverServer, err := server.Provide(serverDiConfig, brokerBroker, loggerLogger, registryRegistry, transportTransport, serverConfig)
+	if err != nil {
+		return nil, err
+	}
+	service, err := provideService(opts, brokerBroker, clientClient, loggerLogger, registryRegistry, serverServer, transportTransport)
 	if err != nil {
 		return nil, err
 	}

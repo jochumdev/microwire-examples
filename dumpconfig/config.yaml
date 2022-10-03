@@ -1,0 +1,26 @@
+---
+Broker:
+  Enabled: true
+  Plugin: nats
+  Addresses:
+    - nats://localhost:4222
+Client:
+  Enabled: true
+  Plugin: grpc
+  PoolSize: 100
+  PoolTTL: 5m
+  PoolRequestTimeout: 10s
+  PoolRetries: 5
+Server:
+  Enabled: true
+  Plugin: grpc
+  RegisterTTL: 30
+  RegisterInterval: 60
+Registry:
+  Enabled: true
+  Plugin: nats
+  Addresses:
+    - nats://localhost:4222
+Transport:
+  Enabled: true
+  Plugin: quic

@@ -9,10 +9,11 @@ import (
 
 func main() {
 	service, err := micro.NewService(
-		micro.Name("simple"),
+		micro.Name("customlogger"),
 		micro.Usage("A POC for go-micro.dev/v5"),
 		micro.Version("v0.0.1"),
-		micro.ArgPrefix("micro"),
+		micro.ConfigFile("config"),
+		micro.ArgPrefix(""),
 	)
 	if err != nil {
 		logger.Fatal(err)
