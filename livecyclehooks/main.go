@@ -8,7 +8,7 @@ import (
 
 	"github.com/go-micro/microwire/v5/logger"
 
-	_ "github.com/go-micro/microwire-plugins/sets/v4compat/v5"
+	_ "github.com/go-micro/microwire-plugins/sets/defaults/v5"
 )
 
 func main() {

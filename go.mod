@@ -3,9 +3,9 @@ module github.com/go-micro/microwire-examples
 go 1.19
 
 require (
-	github.com/go-micro/microwire-plugins/sets/nats/v5 v5.2.0
-	github.com/go-micro/microwire-plugins/sets/v4compat/v5 v5.0.13
-	github.com/go-micro/microwire/v5 v5.0.1
+	github.com/go-micro/microwire-plugins/sets/defaults/v5 v5.2.1
+	github.com/go-micro/microwire-plugins/sets/nats/v5 v5.3.1
+	github.com/go-micro/microwire/v5 v5.0.2
 	github.com/google/wire v0.5.0
 )
 
@@ -24,21 +24,27 @@ require (
 	github.com/felixge/httpsnoop v1.0.3 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
-	github.com/go-acme/lego/v4 v4.8.0 // indirect
+	github.com/go-acme/lego/v4 v4.9.0 // indirect
 	github.com/go-git/gcfg v1.5.0 // indirect
 	github.com/go-git/go-billy/v5 v5.3.1 // indirect
 	github.com/go-git/go-git/v5 v5.4.2 // indirect
-	github.com/go-micro/microwire-plugins/broker/http/v5 v5.0.11 // indirect
-	github.com/go-micro/microwire-plugins/broker/nats/v5 v5.0.13 // indirect
-	github.com/go-micro/microwire-plugins/cli/urfave/v5 v5.0.13 // indirect
-	github.com/go-micro/microwire-plugins/config/source/nats/v5 v5.0.13 // indirect
-	github.com/go-micro/microwire-plugins/events/nats/v5 v5.0.13 // indirect
-	github.com/go-micro/microwire-plugins/events/natsjs/v5 v5.0.13 // indirect
-	github.com/go-micro/microwire-plugins/registry/mdns/v5 v5.0.11 // indirect
-	github.com/go-micro/microwire-plugins/registry/nats/v5 v5.0.13 // indirect
-	github.com/go-micro/microwire-plugins/store/nats-js/v5 v5.0.13 // indirect
-	github.com/go-micro/microwire-plugins/transport/http/v5 v5.0.11 // indirect
-	github.com/go-micro/microwire-plugins/transport/nats/v5 v5.0.13 // indirect
+	github.com/go-micro/microwire-plugins/broker/http/v5 v5.1.2 // indirect
+	github.com/go-micro/microwire-plugins/broker/nats/v5 v5.1.2 // indirect
+	github.com/go-micro/microwire-plugins/cli/urfave/v5 v5.1.0 // indirect
+	github.com/go-micro/microwire-plugins/codec/grpc/v5 v5.0.0 // indirect
+	github.com/go-micro/microwire-plugins/codec/json/v5 v5.0.0 // indirect
+	github.com/go-micro/microwire-plugins/codec/jsonrpc/v5 v5.0.0 // indirect
+	github.com/go-micro/microwire-plugins/codec/proto/v5 v5.0.0 // indirect
+	github.com/go-micro/microwire-plugins/codec/protorpc/v5 v5.0.0 // indirect
+	github.com/go-micro/microwire-plugins/codec/text/v5 v5.0.0 // indirect
+	github.com/go-micro/microwire-plugins/config/source/nats/v5 v5.1.1 // indirect
+	github.com/go-micro/microwire-plugins/events/nats/v5 v5.1.1 // indirect
+	github.com/go-micro/microwire-plugins/events/natsjs/v5 v5.1.1 // indirect
+	github.com/go-micro/microwire-plugins/registry/mdns/v5 v5.1.1 // indirect
+	github.com/go-micro/microwire-plugins/registry/nats/v5 v5.1.1 // indirect
+	github.com/go-micro/microwire-plugins/store/nats-js/v5 v5.1.1 // indirect
+	github.com/go-micro/microwire-plugins/transport/http/v5 v5.1.1 // indirect
+	github.com/go-micro/microwire-plugins/transport/nats/v5 v5.1.2 // indirect
 	github.com/go-micro/plugins/v4/config/encoder/toml v1.1.0 // indirect
 	github.com/go-micro/plugins/v4/config/encoder/yaml v1.1.0 // indirect
 	github.com/gobwas/httphead v0.1.0 // indirect

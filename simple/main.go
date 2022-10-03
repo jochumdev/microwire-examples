@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "github.com/go-micro/microwire-plugins/sets/v4compat/v5"
+	_ "github.com/go-micro/microwire-plugins/sets/defaults/v5"
 	micro "github.com/go-micro/microwire/v5"
 	"github.com/go-micro/microwire/v5/logger"
 )
