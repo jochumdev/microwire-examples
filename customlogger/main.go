@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "github.com/go-micro/microwire-plugins/logger/logrus/v5"
 	_ "github.com/go-micro/microwire-plugins/logger/zap/v5"
 	_ "github.com/go-micro/microwire-plugins/sets/defaults/v5"
 	micro "github.com/go-micro/microwire/v5"

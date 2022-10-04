@@ -7,6 +7,8 @@ require (
 	github.com/go-micro/microwire-plugins/cli/urfave/v5 v5.2.0
 	github.com/go-micro/microwire-plugins/client/grpc/v5 v5.2.0
 	github.com/go-micro/microwire-plugins/codec/json/v5 v5.1.0
+	github.com/go-micro/microwire-plugins/logger/logrus/v5 v5.2.1
+	github.com/go-micro/microwire-plugins/logger/zap/v5 v5.2.1
 	github.com/go-micro/microwire-plugins/registry/mdns/v5 v5.1.1
 	github.com/go-micro/microwire-plugins/server/grpc/v5 v5.2.0
 	github.com/go-micro/microwire-plugins/sets/defaults/v5 v5.2.1
@@ -80,10 +82,14 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
+	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/urfave/cli/v2 v2.17.1 // indirect
 	github.com/xanzy/ssh-agent v0.3.2 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
 	go-micro.dev/v4 v4.9.0 // indirect
+	go.uber.org/atomic v1.10.0 // indirect
+	go.uber.org/multierr v1.8.0 // indirect
+	go.uber.org/zap v1.23.0 // indirect
 	golang.org/x/crypto v0.0.0-20220926161630-eccd6366d1be // indirect
 	golang.org/x/exp v0.0.0-20221002003631-540bb7301a08 // indirect
 	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect

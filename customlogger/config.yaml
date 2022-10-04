@@ -1,44 +1,44 @@
 ---
-Broker:
-  Logger:
-    Enabled: true
-    Plugin: zap
-    Fields:
+broker:
+  logger:
+    enabled: true
+    plugin: zap
+    fields:
       component: broker
-    Level: trace
-Client:
-  Logger:
-    Enabled: true
-    Plugin: zap
-    Fields:
+    level: trace
+client:
+  logger:
+    enabled: true
+    plugin: zap
+    fields:
       component: client
-    Level: trace
-Server:
-  Logger:
-    Enabled: true
-    Plugin: zap
-    Fields:
+    level: trace
+server:
+  logger:
+    enabled: true
+    plugin: logrus
+    fields:
       component: server
-    Level: trace
-  RegisterTTL: 30
-  RegisterInterval: 60
-Logger:
-  Enabled: true
-  Plugin: zap
-  Fields:
+    level: trace
+  register_ttl: 30
+  register_interval: 60
+logger:
+  enabled: true
+  plugin: zap
+  fields:
     component: default
-  Level: trace
-Registry:
-  Logger:
-    Enabled: true
-    Plugin: zap
-    Fields:
+  level: trace
+registry:
+  logger:
+    enabled: true
+    plugin: zap
+    fields:
       component: registry
-    Level: trace
-Transport:
-  Logger:
-    Enabled: true
-    Plugin: zap
-    Fields:
+    level: trace
+transport:
+  logger:
+    enabled: true
+    plugin: zap
+    fields:
       component: transport
-    Level: trace
+    level: trace

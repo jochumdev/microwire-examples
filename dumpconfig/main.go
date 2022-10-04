@@ -5,6 +5,8 @@ import (
 	"os"
 
 	_ "github.com/go-micro/microwire-plugins/client/grpc/v5"
+	_ "github.com/go-micro/microwire-plugins/logger/logrus/v5"
+	_ "github.com/go-micro/microwire-plugins/logger/zap/v5"
 	_ "github.com/go-micro/microwire-plugins/server/grpc/v5"
 	_ "github.com/go-micro/microwire-plugins/sets/defaults/v5"
 	_ "github.com/go-micro/microwire-plugins/sets/nats/v5"
