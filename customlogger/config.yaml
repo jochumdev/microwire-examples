@@ -1,38 +1,25 @@
 ---
 Broker:
-  Enabled: true
-  Plugin: http
   Logger:
     Enabled: true
     Plugin: zap
     Fields:
       component: broker
     Level: trace
-    CallerSkipCount: 2
 Client:
-  Enabled: true
-  Plugin: rpc
   Logger:
     Enabled: true
     Plugin: zap
     Fields:
       component: client
     Level: trace
-    CallerSkipCount: 2
-  PoolSize: 1
-  PoolTTL: 1m
-  PoolRequestTimeout: 5s
-  PoolRetries: 1
 Server:
-  Enabled: true
-  Plugin: rpc
   Logger:
     Enabled: true
     Plugin: zap
     Fields:
       component: server
     Level: trace
-    CallerSkipCount: 2
   RegisterTTL: 30
   RegisterInterval: 60
 Logger:
@@ -41,24 +28,17 @@ Logger:
   Fields:
     component: default
   Level: trace
-  CallerSkipCount: 2
 Registry:
-  Enabled: true
-  Plugin: mdns
   Logger:
     Enabled: true
     Plugin: zap
     Fields:
       component: registry
     Level: trace
-    CallerSkipCount: 2
 Transport:
-  Enabled: true
-  Plugin: http
   Logger:
     Enabled: true
     Plugin: zap
     Fields:
       component: transport
     Level: trace
-    CallerSkipCount: 2
